@@ -1,0 +1,220 @@
+.header-create {
+    display: flex;
+    justify-content: center;
+}
+.header-text {
+    font-size: 36px;
+    font-weight: bold;
+}
+.container {
+    display: flex;
+    padding-top: 24px;
+    color: var(--text-color);
+    margin-left: 8px;
+}
+.file-container {
+    flex: 1;
+}
+.file-upload {
+    height: 200px;
+    input {
+        display: none;
+    }
+    border-radius: 10px;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    cursor: pointer;
+    position: relative;
+    .upload-icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+        font-size: 80px;
+        color: rgb(34, 34, 34);
+        cursor: pointer;
+    }
+    .img-preview {
+        height: 100%;
+        width: 100%;
+        vertical-align: middle;
+    }
+}
+.file-image {
+    display: flex;
+    margin-top: 20px;
+    padding: 4px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    .files {
+        cursor: pointer;
+    }
+    .uploaded-images {
+        cursor: pointer;
+    }
+}
+.file-upload:hover .upload-icon {
+    display: flex;
+    background-color: rgb(235, 232, 232);
+    opacity: 0.5;
+}
+.content-upload {
+    margin-top: -12px;
+    display: flex;
+    color: var(--text-color);
+    flex-direction: column;
+    flex: 2;
+    input,
+    textarea {
+        margin: 12px 18px;
+        padding: 8px;
+        outline: none;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        float: left;
+        resize: none;
+        font-size: 1.6rem;
+        font-weight: 500;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    input[name='title'] {
+        font-size: 24px;
+        font-weight: 700;
+    }
+    .rate-and-select {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+    }
+}
+.rate-box {
+    .rate {
+        display: flex;
+        padding: 4px;
+        width: 48px;
+        justify-content: center;
+    }
+    .text-rate {
+    }
+    display: flex;
+    align-items: center;
+}
+.rate-icon {
+    color: rgb(0, 236, 0);
+}
+.select-box {
+    color: var(--text-color);
+    .text-select {
+        font-weight: 500;
+        font-size: 16px;
+        padding: 6px 12px;
+    }
+    .select-status {
+        cursor: pointer;
+        padding: 4px 12px;
+        width: auto;
+    }
+}
+
+.btn-submit {
+    display: flex;
+    cursor: pointer;
+    margin: auto;
+    margin-top: 36px;
+    width: 120px;
+    height: 36px;
+    border: 1px solid;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+        color: var(--White-color);
+        background: linear-gradient(45deg, red, blue);
+    }
+    .btn-link {
+        display: flex;
+        height: 100%;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+    .btn-link:hover {
+        color: var(--White-color);
+    }
+}
+@media (max-width: 940px) {
+    .container {
+        padding: 12px;
+    }
+    .rate-and-select {
+        display: block !important;
+        margin: 12px 18px;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        .text-select {
+            padding-left: 0px;
+        }
+    }
+    .upload-icon {
+        display: flex !important;
+        background-color: rgb(235, 232, 232);
+        opacity: 0.5;
+    }
+}
+@media (max-width: 680px) {
+    .file-upload {
+        margin: 12px 18px;
+        height: auto !important;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+    }
+    .content-upload {
+        margin-top: 16px;
+    }
+    .select-status {
+        margin: 6px;
+    }
+}
+
+.update-overlay {
+    position: relative;
+
+    .show-off {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        height: 40px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        width: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        .show-off-icon {
+            color: var(--black-color);
+            font-size: 18px;
+        }
+        &:hover {
+            background: linear-gradient(45deg, red, blue);
+            .show-off-icon {
+                color: #fff;
+            }
+        }
+    }
+}
+@media (min-width: 740px) and (max-width: 840px) {
+    .content-upload {
+        max-width: 300px;
+    }
+    .file-container {
+        max-width: 260px;
+    }
+}

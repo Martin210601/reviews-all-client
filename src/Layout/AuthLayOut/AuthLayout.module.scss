@@ -1,0 +1,25 @@
+.icon-back {
+    position: absolute;
+    top: 24px;
+    left: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    padding: 4px 12px;
+    box-shadow: 2px 2px 2px 2px #ccc;
+}
+.text-back {
+    padding: 10px;
+}
+@media (max-width: 991px) {
+    .icon-back {
+        top: 10px;
+        left: 0;
+    }
+}
+@media (max-width: 740px) {
+    .auth-layout {
+        padding: 10% 0;
+    }
+}

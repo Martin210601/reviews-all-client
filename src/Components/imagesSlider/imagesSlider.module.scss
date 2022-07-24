@@ -1,0 +1,93 @@
+.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    &-box-images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        .prev-icon {
+            position: absolute;
+            bottom: -35%;
+            left: 35%;
+            width: 40px;
+            height: 40px;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            opacity: 0.4;
+            z-index: 10;
+            user-select: none;
+        }
+        .next-icon {
+            position: absolute;
+            bottom: -35%;
+            right: 35%;
+            width: 40px;
+            height: 40px;
+            transform: translateY(-50%);
+            border-radius: 50%;
+            // background-color: #ccc;
+            opacity: 0.5;
+            z-index: 10;
+            user-select: none;
+        }
+        .next-icon:hover,
+        .prev-icon:hover {
+            background-color: transparent;
+            opacity: 1;
+            cursor: pointer;
+            color: blue;
+        }
+    }
+    &-image-default {
+        border: 1px solid #ccc;
+    }
+    &-image {
+        height: 200px;
+        width: 300px;
+        border-radius: 8px;
+    }
+    .image {
+        height: 200px;
+        width: 300px;
+        border-radius: 8px;
+    }
+    .slide {
+        opacity: 0;
+        transition-duration: 1s ease;
+    }
+    .slide-active {
+        opacity: 1;
+        transition-duration: 1s;
+        transform: scale(1.05);
+    }
+}
+@media (max-width: 768px) {
+    .next-icon,
+    .prev-icon {
+        background-color: #ccc;
+    }
+    .slider .slider-box-images .prev-icon {
+        top: 50%;
+        left: -5%;
+        transform: translateY(-50%);
+    }
+    .slider .slider-box-images .next-icon {
+        top: 50%;
+        right: -5%;
+        transform: translateY(-50%);
+    }
+}
+@media (max-width: 440px) {
+    .slider {
+        width: 100%;
+        &-box-images {
+            width: 100%;
+            .image {
+                width: 100%;
+            }
+        }
+    }
+}
