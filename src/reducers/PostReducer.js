@@ -5,14 +5,14 @@ export const postReducer = (state, action) => {
             return {
                 ...state,
                 posts: payload.posts,
-                postsLoading: false,
+                postLoading: false,
                 totalPost: payload.totalPost
             }
         case 'POST_LOADED_FAIL':
             return {
                 ...state,
                 posts: [],
-                postsLoading: false,
+                postLoading: false,
             }
         case 'ADD_POST':
             return {
@@ -53,9 +53,8 @@ export const postReducer = (state, action) => {
                 ...state,
                 favPost: [...state.favPost, payload]
             }
-
         case 'GET_FAV_POST':
-            return { ...state, favPost: payload.favPostLimit, postsLoading: false, totalLikePost: payload.totalFavPost }
+            return { ...state, favPost: payload.favPostLimit, postLoading: false, totalLikePost: payload.totalFavPost }
         default:
             return state;
     }

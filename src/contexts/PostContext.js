@@ -34,10 +34,13 @@ const PostContextProvider = ({ children }) => {
 
     // GET ALL POST
     const getPost = async (pageNumber) => {
+        console.log(pageNumber)
         try {
-            const response = await axios.get(`${apiUrl}/news/all?page=${pageNumber}`)
+            const response = await axios.get(`${apiUrl}/news/all?page=${pageNumber || 1}`)
             if (response.data.success) {
                 dispatch({ type: 'POST_LOADED_SUCCESS', payload: response.data })
+            } else {
+                dispatch({ type: 'POST_LOADED_FAIL' })
             }
         } catch (error) {
             dispatch({ type: 'POST_LOADED_FAIL' })
@@ -48,9 +51,12 @@ const PostContextProvider = ({ children }) => {
 
     const getMyPost = async (pageNumber) => {
         try {
-            const response = await axios.get(`${apiUrl}/post/profile?page=${pageNumber}`)
+            const response = await axios.get(`${apiUrl}/post/profile?page=${pageNumber || 1}`)
             if (response.data.success) {
                 dispatch({ type: 'GET_MY_POST_SUCCESS', payload: response.data })
+            }
+            else {
+                dispatch({ type: 'POST_LOADED_FAIL' })
             }
         } catch (error) {
             dispatch({ type: 'POST_LOADED_FAIL' })

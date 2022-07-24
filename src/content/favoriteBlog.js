@@ -35,13 +35,13 @@ function Favorite() {
                         </div>
                     ))}
                 </div>
-                <Pagination
+                {totalLikePost > 6 && (<Pagination className={cx('pagination')}
                     onChange={onChange}
                     defaultPageSize={pageSize}
                     pageSize={pageSize}
                     current={currentLikePage}
                     total={totalLikePost}
-                />
+                />)}
             </>
         )
     }

@@ -10,7 +10,6 @@ import React from 'react'
 const cx = classNames.bind(styles)
 function DefaultLayout({ children }) {
     const { postState: { postLoading } } = useContext(PostContext)
-
     return (
         <>
             <div className={cx('header-wrapper')}>

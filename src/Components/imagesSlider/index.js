@@ -17,7 +17,7 @@ function ImagesSlider({ images }) {
     }
     let body
     if (length === 1 && images[0] === '') {
-        body = (<img src='/assets/img/logo1.png' alt="thumb" className={cx('slider-image-default')}></img>)
+        body = (<img src='/assets/img/logo3.png' alt="thumb" className={cx('slider-image-default')}></img>)
     }
     else if (length === 1 && images[0] !== '') {
         body = (<img src={images[0]} alt="thumb" className={cx('slider-image')}></img>)

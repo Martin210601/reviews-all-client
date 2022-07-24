@@ -38,12 +38,12 @@ const MyBlogs = () => {
                     ))
                     }
                 </div>
-                <Pagination onChange={onChange}
+                {totalMyPost > 6 && (<Pagination className={cx('pagination')} onChange={onChange}
                     defaultPageSize={pageSize}
                     pageSize={pageSize}
                     current={currentMyPage}
                     total={totalMyPost}
-                />
+                />)}
             </>
         )
     }
