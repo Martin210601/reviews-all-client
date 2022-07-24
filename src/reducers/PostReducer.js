@@ -17,6 +17,7 @@ export const postReducer = (state, action) => {
         case 'ADD_POST':
             return {
                 ...state,
+                postLoading: false,
                 posts: [...state.posts, payload]
             }
         case 'SET_POST_LOADING':

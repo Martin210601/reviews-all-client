@@ -3,7 +3,6 @@ import { useContext, useEffect } from "react";
 import { useNavigate, } from "react-router-dom";
 import classNames from "classnames/bind";
 import styles from './post.module.scss'
-import LoadOverlay from "~/Components/LoadOverlay";
 import ImagesSlider from "~/Components/imagesSlider";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faStar, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
@@ -14,9 +13,7 @@ function Post() {
     useEffect(() => {
     }, [postLoading])
     let body
-    if (postLoading) {
-        body = (<LoadOverlay loading title="Loading..."></LoadOverlay>)
-    } else if (postInfo !== null) {
+    if (postInfo !== null) {
         var { title, views, description, like, rate, thumb, uploadedImages, status, } = postInfo
         const images = [thumb, ...uploadedImages]
         body = (

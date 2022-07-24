@@ -72,7 +72,7 @@ const PostContextProvider = ({ children }) => {
     // ADD new post
 
     const createPost = async (formData) => {
-        console.log(formData)
+        dispatch({ type: "SET_POST_LOADING" })
         try {
             const response = await axios.post(`${apiUrl}/post/create`, formData, {
                 headers: {
