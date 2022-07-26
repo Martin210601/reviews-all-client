@@ -34,7 +34,6 @@ const PostContextProvider = ({ children }) => {
 
     // GET ALL POST
     const getPost = async (pageNumber) => {
-        console.log(pageNumber)
         try {
             const response = await axios.get(`${apiUrl}/news/all?page=${pageNumber || 1}`)
             if (response.data.success) {
