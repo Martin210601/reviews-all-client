@@ -16,9 +16,11 @@ const PostContextProvider = ({ children }) => {
         postLoading: true,
         myPost: [],
         favPost: [],
+        searchPost: [],
         totalPost: 0,
         totalMyPost: 0,
         totalLikePost: 0,
+        totalSearchPost: 0,
         pageSize: 6
 
     })
@@ -29,6 +31,7 @@ const PostContextProvider = ({ children }) => {
     const [currentPage, setCurrentPage] = useState(1)
     const [currentMyPage, setCurrentMyPage] = useState(1)
     const [currentLikePage, setCurrentLikePage] = useState(1)
+    const [currentSearchPage, setCurrentSearchPage] = useState(1)
 
 
 
@@ -43,6 +46,19 @@ const PostContextProvider = ({ children }) => {
             }
         } catch (error) {
             dispatch({ type: 'POST_LOADED_FAIL' })
+        }
+    }
+
+    const getSearchPost = async (keyword, pageNumber) => {
+        try {
+            const response = await axios.get(`${apiUrl}/post/search?keyword=${keyword}&page=${pageNumber || 1}`)
+            if (response.data.success) {
+                dispatch({ type: 'SEARCH_POST_SUCCESS', payload: response.data })
+            } else {
+                dispatch({ type: 'POST_SEARCH_FAIL' })
+            }
+        } catch (error) {
+            dispatch({ type: 'POST_SEARCH_FAIL' })
         }
     }
 
@@ -182,6 +198,9 @@ const PostContextProvider = ({ children }) => {
         setCurrentMyPage,
         currentLikePage,
         setCurrentLikePage,
+        currentSearchPage,
+        setCurrentSearchPage,
+        getSearchPost,
     }
 
     return (

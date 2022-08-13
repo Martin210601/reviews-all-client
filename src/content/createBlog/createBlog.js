@@ -16,9 +16,9 @@ function CreateBlog() {
         thumb: '',
         rate: '',
         uploadedImages: [],
-        status: 'TRAVEL',
+        topic: 'TRAVEL',
     })
-    const { title, description, rate, status, } = newPost
+    const { title, description, rate, topic, } = newPost
     const onChangeNewPost = (event) => {
         setNewPost({ ...newPost, [event.target.name]: event.target.value })
     }
@@ -52,7 +52,6 @@ function CreateBlog() {
     }
     //Context 
     const { createPost, getPost } = useContext(PostContext)
-
     /// Submit Create new Post
 
     const onSubmit = async (event) => {
@@ -61,7 +60,7 @@ function CreateBlog() {
         formData.append('title', newPost.title);
         formData.append('description', newPost.description);
         formData.append('thumb', newPost.thumb);
-        formData.append('status', newPost.status);
+        formData.append('topic', newPost.topic);
         formData.append('rate', newPost.rate);
         newPost.uploadedImages.forEach((file) => {
             formData.append('uploadedImages', file);
@@ -69,8 +68,8 @@ function CreateBlog() {
         try {
             const { success } = await createPost(formData)
             if (success) {
-                navigate('/myBlogs')
                 getPost()
+                navigate('/myBlogs')
             }
         } catch (error) {
             alert('You have not entered enough information')
@@ -81,7 +80,6 @@ function CreateBlog() {
     const onMultipleFileChange = async (e) => {
         const image = e.target.files
         setNewPost({ ...newPost, uploadedImages: Array.from(image) })
-        console.log(Array.from(image))
     }
     return (
         <>
@@ -114,8 +112,8 @@ function CreateBlog() {
                             <FontAwesomeIcon className={cx('rate-icon')} icon={faStar} />
                         </div>
                         <div className={cx('select-box')}>
-                            <label htmlFor="status" className={cx('text-select')}>Topic :</label>
-                            <select className={cx('select-status')} onChange={onChangeNewPost} value={status} name='status' id="status">
+                            <label htmlFor="topic" className={cx('text-select')}>Topic :</label>
+                            <select className={cx('select-topic')} onChange={onChangeNewPost} value={topic} name='topic' id="topic">
                                 <option value="TRAVEL">TRAVEL</option>
                                 <option value="FOOD">FOOD</option>
                             </select>
@@ -123,8 +121,6 @@ function CreateBlog() {
                     </div>
                     <button type='submit' className={cx('btn-submit')} >Create</button>
                 </div>
-
-
             </form>
         </>);
 }

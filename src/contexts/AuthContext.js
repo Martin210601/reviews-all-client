@@ -35,11 +35,9 @@ const AuthContextProvider = ({ children }) => {
         }
     }
 
-
     useEffect(() => {
         checkUserLogin()
     }, [])
-
 
     //login
 
@@ -57,7 +55,6 @@ const AuthContextProvider = ({ children }) => {
         }
     }
 
-
     //register user
     const registerUser = async userForm => {
         try {
@@ -72,14 +69,12 @@ const AuthContextProvider = ({ children }) => {
             else return { success: false, message: error.message }
         }
     }
-
     //logoutUser
     const logoutUser = async () => {
         localStorage.removeItem(LOCAL_STORAGE_TOKEN_NAME)
         await dispatch({ ...this.state, type: 'SET AUTH', payload: { isAuthenticated: false, user: { _id: Math.random(), name: 'computer' } } })
         // await checkUserLogin()
     }
-
     useEffect(() => {
         checkUserLogin()
     }, [])

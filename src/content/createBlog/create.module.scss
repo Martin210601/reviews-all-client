@@ -92,6 +92,8 @@
     }
 }
 .rate-box {
+    display: flex;
+    align-items: center;
     .rate {
         display: flex;
         padding: 4px;
@@ -99,9 +101,9 @@
         justify-content: center;
     }
     .text-rate {
+        display: flex;
+        align-items: center;
     }
-    display: flex;
-    align-items: center;
 }
 .rate-icon {
     color: rgb(0, 236, 0);
@@ -113,7 +115,7 @@
         font-size: 16px;
         padding: 6px 12px;
     }
-    .select-status {
+    .select-topic {
         cursor: pointer;
         padding: 4px 12px;
         width: auto;
@@ -123,18 +125,19 @@
 .btn-submit {
     display: flex;
     cursor: pointer;
-    margin: auto;
-    margin-top: 36px;
+    margin: 36px auto 20px auto;
     width: 120px;
     height: 36px;
-    border: 1px solid;
+    border: 1px solid #000;
     border-radius: 8px;
     background-color: #fff;
     font-size: 18px;
     font-weight: 500;
     justify-content: center;
+    color: #000;
     align-items: center;
     &:hover {
+        border: none;
         color: var(--White-color);
         background: linear-gradient(45deg, red, blue);
     }
@@ -180,7 +183,7 @@
     .content-upload {
         margin-top: 16px;
     }
-    .select-status {
+    .select-topic {
         margin: 6px;
     }
 }

@@ -11,7 +11,7 @@ function UpdatePost() {
     const { postState: { post }, setShowUpdatePost, changePost } = useContext(PostContext)
     // update post 
     const [updatePost, setUpdatePost] = useState(post)
-    const { title, description, rate, status } = updatePost
+    const { title, description, rate, topic } = updatePost
     const onChangeUpdatePost = (event) => {
         setUpdatePost({ ...updatePost, [event.target.name]: event.target.value })
     }
@@ -26,7 +26,7 @@ function UpdatePost() {
         console.log(formDataUpdate)
         formDataUpdate.append('title', updatePost.title);
         formDataUpdate.append('description', updatePost.description);
-        formDataUpdate.append('status', updatePost.status);
+        formDataUpdate.append('topic', updatePost.topic);
         formDataUpdate.append('rate', updatePost.rate);
         updatePost.uploadedImages.forEach((file) => {
             formDataUpdate.append('uploadedImages', file);
@@ -115,8 +115,8 @@ function UpdatePost() {
                             <FontAwesomeIcon className={cx('rate-icon')} icon={faStar} />
                         </div>
                         <div className={cx('select-box')}>
-                            <label htmlFor="status" className={cx('text-select')}>Topic :</label>
-                            <select className={cx('select-status')} onChange={onChangeUpdatePost} value={status} name='status' id="status">
+                            <label htmlFor="topic" className={cx('text-select')}>Topic :</label>
+                            <select className={cx('select-topic')} onChange={onChangeUpdatePost} value={topic} name='topic' id="topic">
                                 <option value="TRAVEL">TRAVEL</option>
                                 <option value="FOOD">FOOD</option>
                             </select>

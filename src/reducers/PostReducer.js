@@ -20,6 +20,19 @@ export const postReducer = (state, action) => {
                 postLoading: false,
                 posts: [...state.posts, payload]
             }
+        case 'SEARCH_POST_SUCCESS':
+            return {
+                ...state,
+                postLoading: false,
+                searchPost: payload.result,
+                totalSearchPost: payload.totalSearchMatch
+            }
+        case 'POST_SEARCH_FAIL':
+            return {
+                ...state,
+                postLoading: false,
+                searchPost: [],
+            }
         case 'SET_POST_LOADING':
             return {
                 ...state,

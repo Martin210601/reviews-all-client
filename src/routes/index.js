@@ -5,6 +5,7 @@ import AllBlogs from '~/content/allBlogs';
 import CreateBlog from '~/content/createBlog/createBlog';
 import AuthLayout from '~/Layout/AuthLayOut';
 import Post from '~/content/blogInfo/Post'
+import SearchPost from '~/content/searchBlog'
 const publicRoutes = [
     {
         id: 1, path: '/', component: AllBlogs
@@ -15,16 +16,19 @@ const publicRoutes = [
     {
         id: 3, path: '/blog/:slug', component: Post,
     },
+    {
+        id: 4, path: '/search', component: SearchPost,
+    },
 ]
 const privateRoutes = [
     {
-        id: 3, path: '/myBlogs', component: MyBlogs
+        id: 5, path: '/myBlogs', component: MyBlogs
     },
     {
-        id: 4, path: '/create', component: CreateBlog
+        id: 6, path: '/create', component: CreateBlog
     },
     {
-        id: 5, path: 'favorite', component: Favorite
+        id: 7, path: 'favorite', component: Favorite
     }
 
 ]
