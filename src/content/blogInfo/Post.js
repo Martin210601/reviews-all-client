@@ -14,7 +14,7 @@ function Post() {
     }, [postLoading])
     let body
     if (postInfo !== null) {
-        var { title, views, description, like, rate, thumb, uploadedImages, status, } = postInfo
+        var { title, views, description, like, rate, thumb, uploadedImages, topic, } = postInfo
         const images = [thumb, ...uploadedImages]
         body = (
             <div className={cx('post-container')}>
@@ -39,7 +39,7 @@ function Post() {
                                 </div>
                             </div>
                             <div className={cx('status-views')}>
-                                <div className={cx('status')}>Topic :{status}</div>
+                                <div className={cx('status')}>Topic :{topic}</div>
                                 <div className={cx('views')}>Views: {views}</div>
                             </div>
                         </div>

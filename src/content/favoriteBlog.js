@@ -12,7 +12,6 @@ function Favorite() {
     const { postState: { postLoading, favPost, totalLikePost, pageSize }, getLikePost, currentLikePage, setCurrentLikePage } = useContext(PostContext)
     useEffect(() => {
         getLikePost(currentLikePage)
-
         // eslint-disable-next-line react-hooks/exhaustive-deps 
     }, [totalLikePost, currentLikePage])
     const onChange = page => {
